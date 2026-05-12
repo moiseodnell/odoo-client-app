@@ -27,7 +27,7 @@ docker compose up --build -d
 NB: Avoir lancé Docker avant
 ```
 
-# 4. Créer la base Odoo (une seule fois)
+## Créer la base Odoo (une seule fois)
    - Ouvrir http://localhost:8069 dans un navigateur
    - Remplir le formulaire :
        - Master Password : admin123
@@ -36,20 +36,20 @@ NB: Avoir lancé Docker avant
        - Password        : admin
    - Installer le module ventes (L'installation du module Facturation se fait automatiquement) et le module facturation s'il n'est pas installé automatiquement.
 
-### Accès à la plateforme web et à odoo
+## Accès à la plateforme web et à odoo
 
-Web App : http://localhost:3000 
-Odoo    :http://localhost:8069
-pgAdmin (DB) :localhost:5433 (user: odoo) 
+- Web App : http://localhost:3000 |
+- Odoo    :http://localhost:8069 |
+- pgAdmin (DB) :localhost:5433 (user: odoo) |
 
 ---
 
 ## Connexion à Odoo
 
-URL  :http://localhost:8069
-Email : admin@admin.com 
-Mot de passe : admin
-Base de données : odoo
+- URL  :http://localhost:8069
+- Email : admin@admin.com 
+- Mot de passe : admin
+- Base de données : odoo
 
 ---
 
@@ -63,7 +63,7 @@ Nous avons utilisé cet objet pour représenter les clients. C'est entre autre l
 Nous l'avons utilisé pour les commandes de vente.  
 C'est l'objet natif Odoo pour les bons de commande clients. Il est lié à un `res.partner` via `partner_id`, et contient des lignes (`sale.order.line`) avec le produit, la quantité et le prix unitaire.
 
-### `product.product`
+### "product.product"
 Nous avons utilisé cet objet pour créer le produit référencé dans la commande.  
 Au lieu d'obliger l'utilisateur à configurer un catalogue produit, l'application cherche un produit existant par son nom, ou en crée un à la volée si absent. Nous l'avons mis en place pour simplifier l'expérience sans bloquer la synchronisation.
 
@@ -73,3 +73,4 @@ Au lieu d'obliger l'utilisateur à configurer un catalogue produit, l'applicatio
 
 - Un seul utilisateur Odoo (admin) est utilisé pour toutes les opérations API.
 - Le prix est saisi directement en valeur totale (quantité = 1 par défaut).
+- Permettre à l'utilisateur de créer une commande sans forcement créer au préalable un produit
